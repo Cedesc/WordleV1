@@ -1,0 +1,39 @@
+
+
+Project: WordleX3Z
+
+
+
+Major Parts:
+    - test suite
+    - frontend
+    - backend
+        - "database" of possible words
+            - txt file? json file?
+            - sorted by word length?
+
+
+
+Possible Functionalities:
+	- create random Wordles
+	- AI
+    - possibility for the user to change settings
+
+
+
+
+
+
+
+
+Other Ideas:
+
+	1. VeEat
+	4. Automatische TDL (zb auch wöchentlich)
+
+	6. Irgendein simples Spiel (zb Tetris oder Minesweeper) plus KI dazu
+	7. Game of Life
+	3. Soundboard
+
+	5. Songtext Zeilen
+	2. Password Manager
