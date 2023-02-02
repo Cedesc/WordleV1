@@ -24,7 +24,8 @@ class LetterBox {
      */
     var state: Int = 0
         set(value) {
-            field = maxOf(0, minOf(value, 3))
+            if (value in 0..3)
+                field = value
         }
 
 
