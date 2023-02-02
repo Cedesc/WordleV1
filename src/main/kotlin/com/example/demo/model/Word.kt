@@ -25,4 +25,8 @@ class Word(resultWordLength: Int) {
         return false
     }
 
+    override fun toString(): String {
+        return "Word(letters=${letters.contentToString()})"
+    }
+
 }

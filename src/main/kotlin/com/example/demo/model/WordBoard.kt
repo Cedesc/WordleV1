@@ -36,9 +36,13 @@ class WordBoard(resultWord: String, numberOfRows: Int) {
      *
      * @return True if the given word is the same as [WordBoard.resultWord], False otherwise.
      */
-    private fun checkWord(): Boolean {
+    fun checkWord(): Boolean {
         // TODO: Not yet implemented.
         return false
+    }
+
+    override fun toString(): String {
+        return "WordBoard(resultWord='$resultWord', numberOfRows=$numberOfRows, currentRow=$currentRow, rows=${rows.contentToString()})"
     }
 
 }

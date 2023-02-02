@@ -21,4 +21,9 @@ class KeyBoardLetter(letter: Char) {
      */
     private val state: Int = 0
 
+
+    override fun toString(): String {
+        return "KeyBoardLetter(letter=$letter, state=$state)"
+    }
+
 }

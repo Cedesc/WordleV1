@@ -20,4 +20,9 @@ class Game(resultWord: String, numberOfRows: Int) {
      */
     private val keyBoard: KeyBoard = KeyBoard()
 
+
+    override fun toString(): String {
+        return "Game(wordBoard=$wordBoard, keyBoard=$keyBoard)"
+    }
+
 }

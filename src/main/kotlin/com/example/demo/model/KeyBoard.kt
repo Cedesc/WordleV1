@@ -39,4 +39,8 @@ class KeyBoard {
         // TODO: Not yet implemented.
     }
 
+    override fun toString(): String {
+        return "KeyBoard(letterKeys=${letterKeys.contentToString()})"
+    }
+
 }
