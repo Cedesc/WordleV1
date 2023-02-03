@@ -10,13 +10,19 @@ package com.example.demo.model
 class Word(resultWordLength: Int) {
 
     /**
-     * Representation of the letters. Each letter is exactly one [LetterBox].
+     * Represents the individual letters in the word.
+     * Each letter is represented by exactly one instance of [LetterBox].
      */
     val letters: Array<LetterBox> = Array(resultWordLength) { _ -> LetterBox() }
 
 
     /**
-     * @return True if the given word is the same as [WordBoard.resultWord], False otherwise.
+     * Determines if the passed `resultWord` is equal to [WordBoard.resultWord].
+     *
+     * Calls [LetterBox.checkIfLetterIsInWord] and [LetterBox.compareLetter], which change the states of the individual letters in
+     * [letters] are change.
+     *
+     * @return True if the passed word is equal to [WordBoard.resultWord], False otherwise.
      */
     fun checkWord(resultWord: String): Boolean {
         // raise error if the words have different length
@@ -36,6 +42,10 @@ class Word(resultWordLength: Int) {
         return letters.all { it.state == 3 }
     }
 
+    /**
+     * @return A string representation of the [Word] object, including the string representation of its [letters]
+     * property.
+     */
     override fun toString(): String {
         return "Word(letters=${letters.contentToString()})"
     }
