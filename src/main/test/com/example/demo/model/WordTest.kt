@@ -15,15 +15,27 @@ class WordTest {
         word.letters[2].letter = 's'
         word.letters[3].letter = 't'
         assertTrue(word.checkWord("test"))
+        // all LetterBoxes should be green
+        assertTrue(word.letters[0].state == 3)
+        assertTrue(word.letters[1].state == 3)
+        assertTrue(word.letters[2].state == 3)
+        assertTrue(word.letters[3].state == 3)
     }
 
     @Test
-    fun testCheckWord_otherWord() {
-        val word = Word(3)
+    fun testCheckWord_differentWord() {
+        val word = Word(5)
         word.letters[0].letter = 's'
         word.letters[1].letter = 'a'
-        word.letters[2].letter = 'y'
-        assertTrue(word.checkWord("not"))
+        word.letters[2].letter = 'i'
+        word.letters[3].letter = 'l'
+        word.letters[4].letter = 's'
+        assertFalse(word.checkWord("tasty"))
+        assertTrue(word.letters[0].state == 2)
+        assertTrue(word.letters[1].state == 3)
+        assertTrue(word.letters[2].state == 1)
+        assertTrue(word.letters[3].state == 1)
+        assertTrue(word.letters[4].state == 2)
     }
 
     @Test
