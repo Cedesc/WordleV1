@@ -9,6 +9,7 @@ import tornadofx.px
 class Styles : Stylesheet() {
     companion object {
         val heading by cssclass()
+        val keyboardButton by cssclass()
     }
 
     init {
@@ -16,6 +17,15 @@ class Styles : Stylesheet() {
             padding = box(10.px)
             fontSize = 20.px
             fontWeight = FontWeight.BOLD
+        }
+    }
+
+    init {
+        button and keyboardButton {
+            padding = box(10.px)
+            fontSize = 20.px
+            minWidth = 40.px
+            minHeight = 40.px
         }
     }
 }
