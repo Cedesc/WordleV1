@@ -1,6 +1,8 @@
 package com.example.demo.view
 
+import com.example.demo.controller.MainController
 import com.example.demo.style.Styles
+import com.example.demo.view.viewmodel.WordBoardModel
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
@@ -9,6 +11,18 @@ import tornadofx.*
 
 class MainView : View("WordleX3Z") {
     // TODO: add Tests? Is it possible or meaningful to have tests for this?
+
+    // inject controller
+    private val mainController: MainController by inject()
+
+    // set number of rows and number of columns
+    private val numberOfRows: Int = mainController.numberOfRows
+    private val numberOfColumns: Int = mainController.resultWord.length
+
+
+    private val wordBoardModel: WordBoardModel by inject()
+
+
 
     override val root = vbox {
 
@@ -19,9 +33,9 @@ class MainView : View("WordleX3Z") {
             // align in the center
             alignment = Pos.CENTER
             // add fields
-            for (row in 0 until 5) {
+            for (row in 0 until numberOfRows) {
                 row {
-                    for (col in 0 until 5) {
+                    for (col in 0 until numberOfColumns) {
                         stackpane {
                             rectangle(width = 50.0, height = 50.0) {
                                 fill = Color.LIGHTGRAY
