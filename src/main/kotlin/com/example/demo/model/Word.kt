@@ -4,7 +4,7 @@ package com.example.demo.model
  * Representation of a word / row in the [WordBoard].
  * Contains as many instances of [LetterBox] as [WordBoard.resultWord] has letters.
  *
- * @constructor Create a new and empty [Word] with as many instances of [LetterBox] as [WordBoard.resultWord] has letters.
+ * @constructor Creates a new and empty [Word] with as many instances of [LetterBox] as [WordBoard.resultWord] has letters.
  * @param resultWordLength Length of [WordBoard.resultWord].
  */
 class Word(resultWordLength: Int) {
@@ -23,9 +23,10 @@ class Word(resultWordLength: Int) {
      * [letters] are change.
      *
      * @return True if the passed word is equal to [WordBoard.resultWord], False otherwise.
+     * @throws IllegalArgumentException If the passed resultWord and [letters] have different length.
      */
     fun checkWord(resultWord: String): Boolean {
-        // raise error if the words have different length
+        // throw an error if the words have different length
         if (resultWord.length != letters.size) throw IllegalArgumentException("The length of the passed resultWord " +
                 "and the number of saved letters must be the same.")
 
