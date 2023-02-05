@@ -13,12 +13,12 @@ class Game(resultWord: String, numberOfRows: Int) {
     /**
      * The saved instance of [WordBoard].
      */
-    private val wordBoard: WordBoard = WordBoard(resultWord, numberOfRows)
+    val wordBoard: WordBoard = WordBoard(resultWord, numberOfRows)
 
     /**
      * The saved instance of [KeyBoard].
      */
-    private val keyBoard: KeyBoard = KeyBoard()
+    val keyBoard: KeyBoard = KeyBoard()
 
 
     override fun toString(): String {
