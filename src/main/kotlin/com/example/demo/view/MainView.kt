@@ -2,11 +2,11 @@ package com.example.demo.view
 
 import com.example.demo.controller.MainController
 import com.example.demo.style.Styles
+import com.example.demo.view.nodes.LetterBoxShape
 import com.example.demo.view.viewmodel.WordBoardModel
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
-import javafx.scene.paint.Color
 import tornadofx.*
 
 class MainView : View("WordleX3Z") {
@@ -36,18 +36,9 @@ class MainView : View("WordleX3Z") {
             for (row in 0 until numberOfRows) {
                 row {
                     for (col in 0 until numberOfColumns) {
-                        stackpane {
-                            rectangle(width = 50.0, height = 50.0) {
-                                fill = Color.LIGHTGRAY
-                                stroke = Color.BLACK
-                                strokeWidth = 1.0
-                            }
-                            label("$col , $row") {
-                                prefWidth = 50.0
-                                prefHeight = 50.0
-                                alignment = Pos.CENTER
-                            }
-                        }
+
+                        add(LetterBoxShape())
+
                     }
                 }
             }
