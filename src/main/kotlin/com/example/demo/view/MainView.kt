@@ -58,7 +58,7 @@ class MainView : View("WordleX3Z") {
                 // create first row of letter keys
                 for (letter in "QWERTZUIOP") { button(letter.toString()) {
                     addClass(Styles.keyboardButton)
-                    action { println(letter) } }
+                    action { mainController.letterKeyPressed(letter) } }
                 }
             }
 
@@ -68,7 +68,7 @@ class MainView : View("WordleX3Z") {
                 // create second row of letter keys
                 for (letter in "ASDFGHJKL") { button(letter.toString()) {
                     addClass(Styles.keyboardButton)
-                    action { println(letter) } }
+                    action { mainController.letterKeyPressed(letter) } }
                 }
             }
 
@@ -78,19 +78,19 @@ class MainView : View("WordleX3Z") {
                 // create enter button
                 button("ENTER") {
                     addClass(Styles.keyboardButton)
-                    action { println("Enter") }
+                    action { mainController.enterPressed() }
                 }
 
                 // create third row of letter keys
                 for (letter in "YXCVBNM") { button(letter.toString()) {
                     addClass(Styles.keyboardButton)
-                    action { println(letter) } }
+                    action { mainController.letterKeyPressed(letter) } }
                 }
 
                 // create back button
                 button("BACK") {
-                    action { println("Back") }
                     addClass(Styles.keyboardButton)
+                    action { mainController.backPressed() }
                 }
             }
 
