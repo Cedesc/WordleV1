@@ -1,12 +1,29 @@
 package com.example.demo.view
 
 import com.example.demo.controller.MainController
+import com.example.demo.model.LetterBox
 import com.example.demo.style.Styles
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import tornadofx.*
 
+/**
+ * MainView is a [View] in TornadoFX that displays a game board for the Wordle game.
+ *
+ * @property mainController is a controller for the MainView. It is injected through TornadoFX's dependency injection.
+ * @property numberOfRows is the number of rows in the game board. It is obtained from the mainController.
+ * @property numberOfColumns is the number of columns in the game board. It is obtained from the length of the result
+ * word in the mainController.
+ *
+ * The MainView has a title of "WordleX3Z" and has three main components:
+ * 1. A game board, which is a [gridpane] containing letter boxes. The letter boxes are created with the
+ * [LetterBoxFragment] class and are populated with the letters from the game board in the mainController.
+ * 2. A horizontal separator line, which separates the game board from the keyboard.
+ * 3. A keyboard, which is a [vbox] containing instances of [hbox] containing letter keys and special keys
+ * (ENTER, BACK). The keys are created with the [button] function and have actions associated with them that
+ * call methods in the mainController.
+ */
 class MainView : View("WordleX3Z") {
     // TODO: add Tests? Is it possible or meaningful to have tests for this?
 
@@ -26,15 +43,12 @@ class MainView : View("WordleX3Z") {
             addClass(Styles.wordBoard)
             // align in the center
             alignment = Pos.CENTER
-            // add fields
+            // add fields (LetterBoxes)
             for (row in 0 until numberOfRows) {
                 row {
                     for (col in 0 until numberOfColumns) {
-
-                        val letter = mainController.gameInstance.wordBoard.rows[row].letters[col]
-
+                        val letter: LetterBox = mainController.gameInstance.wordBoard.rows[row].letters[col]
                         add<LetterBoxFragment>(LetterBoxFragment::letterBox to letter)
-
                     }
                 }
             }
