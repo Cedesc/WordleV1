@@ -13,8 +13,11 @@ class LetterBox {
      */
     var letter: Char = ' '
         set(value) {
-            if ("abcdefghijklmnopqrstuvwxyz ".contains(value))
+            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ ".contains(value))
                 field = value
+            // if the input is a lower case letter, change it to an upper case letter
+            if ("abcdefghijklmnopqrstuvwxyz".contains(value))
+                field = value.toUpperCase()
         }
 
     /**

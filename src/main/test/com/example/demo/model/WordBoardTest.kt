@@ -9,10 +9,10 @@ class WordBoardTest {
 
     @Test
     fun testCheckWord_validWord() {
-        val wordBoard = WordBoard("word", 3)
+        val wordBoard = WordBoard("WORD", 3)
 
-        word_quickFill(wordBoard.rows[0], 'a', 'e', 'r', 'o')
-        word_quickFill(wordBoard.rows[1], 'w', 'o', 'r', 'd')
+        word_quickFill(wordBoard.rows[0], 'A', 'E', 'R', 'O')
+        word_quickFill(wordBoard.rows[1], 'W', 'O', 'R', 'D')
 
         assertFalse(wordBoard.checkWord())
 
@@ -21,10 +21,10 @@ class WordBoardTest {
 
     @Test
     fun testCheckWord_maximumNumberOfRowsReached() {
-        val wordBoard = WordBoard("say", 2)
+        val wordBoard = WordBoard("SAY", 2)
 
-        word_quickFill(wordBoard.rows[0], 'h', 'e', 'y')
-        word_quickFill(wordBoard.rows[1], 'f', 'o', 'r')
+        word_quickFill(wordBoard.rows[0], 'H', 'E', 'Y')
+        word_quickFill(wordBoard.rows[1], 'F', 'O', 'R')
 
         assertFalse(wordBoard.checkWord())
 
@@ -35,11 +35,13 @@ class WordBoardTest {
 
     @Test
     fun testToString() {
-        val wordBoard = WordBoard("word", 1)
+        val wordBoard = WordBoard("WORD", 1)
 
         val result = wordBoard.toString()
 
-        assertEquals("WordBoard(resultWord='word', numberOfRows=1, currentRow=0, rows=[Word(wordLength=4)])", result)
+        assertEquals("WordBoard(resultWord='WORD', numberOfRows=1, currentRow=0, " +
+                "rows=[Word(letters=[LetterBox(letter= , state=0), LetterBox(letter= , state=0), " +
+                "LetterBox(letter= , state=0), LetterBox(letter= , state=0)])])", result)
     }
 
 

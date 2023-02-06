@@ -9,8 +9,8 @@ class LetterBoxTest {
     @Test
     fun testCheckIfLetterIsInWord_whenContains() {
         val letterBox = LetterBox()
-        letterBox.letter = 'a'
-        val result = letterBox.checkIfLetterIsInWord("abc")
+        letterBox.letter = 'A'
+        val result = letterBox.checkIfLetterIsInWord("ABC")
         assertEquals(true, result)
         assertEquals(2, letterBox.state)
     }
@@ -18,8 +18,8 @@ class LetterBoxTest {
     @Test
     fun testCheckIfLetterIsInWord_whenNotContains() {
         val letterBox = LetterBox()
-        letterBox.letter = 'd'
-        val result = letterBox.checkIfLetterIsInWord("abc")
+        letterBox.letter = 'D'
+        val result = letterBox.checkIfLetterIsInWord("ABC")
         assertEquals(false, result)
         assertEquals(1, letterBox.state)
     }
@@ -28,8 +28,8 @@ class LetterBoxTest {
     @Test
     fun testCompareLetter_whenEqual() {
         val letterBox = LetterBox()
-        letterBox.letter = 'a'
-        val result = letterBox.compareLetter('a')
+        letterBox.letter = 'A'
+        val result = letterBox.compareLetter('A')
         assertEquals(true, result)
         assertEquals(3, letterBox.state)
     }
@@ -37,8 +37,8 @@ class LetterBoxTest {
     @Test
     fun testCompareLetter_whenNotEqual() {
         val letterBox = LetterBox()
-        letterBox.letter = 'a'
-        val result = letterBox.compareLetter('b')
+        letterBox.letter = 'A'
+        val result = letterBox.compareLetter('B')
         assertEquals(false, result)
         assertEquals(0, letterBox.state)
     }
@@ -47,8 +47,8 @@ class LetterBoxTest {
     @Test
     fun testSetLetter_withValidValue() {
         val letterBox = LetterBox()
-        letterBox.letter = 'a'
-        assertEquals('a', letterBox.letter)
+        letterBox.letter = 'A'
+        assertEquals('A', letterBox.letter)
     }
 
     @Test
@@ -61,8 +61,8 @@ class LetterBoxTest {
     @Test
     fun testSetLetter_withBlank() {
         val letterBox = LetterBox()
-        letterBox.letter = 'c'
-        assertEquals('c', letterBox.letter)
+        letterBox.letter = 'C'
+        assertEquals('C', letterBox.letter)
         letterBox.letter = ' '
         assertEquals(' ', letterBox.letter)
     }
@@ -88,8 +88,8 @@ class LetterBoxTest {
     @Test
     fun testToString_black() {
         val lb = LetterBox()
-        lb.letter = 'a'
-        assertEquals("LetterBox(letter=a, state=0)", lb.toString())
+        lb.letter = 'A'
+        assertEquals("LetterBox(letter=A, state=0)", lb.toString())
     }
 
     @Test
@@ -102,17 +102,17 @@ class LetterBoxTest {
     @Test
     fun testToString_yellow() {
         val lb = LetterBox()
-        lb.letter = 'c'
+        lb.letter = 'C'
         lb.state = 2
-        assertEquals("LetterBox(letter=c, state=2)", lb.toString())
+        assertEquals("LetterBox(letter=C, state=2)", lb.toString())
     }
 
     @Test
     fun testToString_green() {
         val lb = LetterBox()
-        lb.letter = 'd'
+        lb.letter = 'D'
         lb.state = 3
-        assertEquals("LetterBox(letter=d, state=3)", lb.toString())
+        assertEquals("LetterBox(letter=D, state=3)", lb.toString())
     }
 
 }
