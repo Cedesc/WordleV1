@@ -2,7 +2,6 @@ package com.example.demo.view
 
 import com.example.demo.controller.MainController
 import com.example.demo.style.Styles
-import com.example.demo.view.nodes.LetterBoxShape
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
@@ -32,7 +31,9 @@ class MainView : View("WordleX3Z") {
                 row {
                     for (col in 0 until numberOfColumns) {
 
-                        add(LetterBoxShape())
+                        val letter = mainController.gameInstance.wordBoard.rows[row].letters[col]
+
+                        add<LetterBoxFragment>(LetterBoxFragment::letterBox to letter)
 
                     }
                 }
