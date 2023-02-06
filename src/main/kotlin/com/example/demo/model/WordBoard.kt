@@ -22,7 +22,7 @@ class WordBoard(resultWord: String, numberOfRows: Int) {
     /**
      * Number of the actual row where the user can insert letters.
      */
-    private var currentRow: Int = 0
+    var currentRow: Int = 0
 
     /**
      * Representation of the board rows. Each row is exactly one instance of [Word].
