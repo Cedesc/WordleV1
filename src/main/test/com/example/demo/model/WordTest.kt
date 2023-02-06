@@ -58,6 +58,18 @@ class WordTest {
     }
 
     @Test
+    fun testIsEmpty() {
+        val word = Word(3)
+        assertTrue(word.isEmpty())
+        word.letterBoxes[0].letter = 'W'
+        assertFalse(word.isEmpty())
+        word.letterBoxes[1].letter = 'O'
+        assertFalse(word.isEmpty())
+        word.letterBoxes[2].letter = 'O'
+        assertFalse(word.isEmpty())
+    }
+
+    @Test
     fun testToString() {
         val word = Word(3)
         assertEquals("Word(letters=[LetterBox(letter= , state=0), " +

@@ -51,6 +51,13 @@ class Word(resultWordLength: Int) {
     }
 
     /**
+     * @return True if no letter is set (the word is empty), False otherwise.
+     */
+    fun isEmpty(): Boolean {
+        return letterBoxes.first().letter == ' '
+    }
+
+    /**
      * @return A string representation of the [Word] object, including the string representation of its [letterBoxes]
      * property.
      */
