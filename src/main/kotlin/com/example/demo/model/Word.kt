@@ -44,6 +44,13 @@ class Word(resultWordLength: Int) {
     }
 
     /**
+     * @return True if all letters are set (the word is full), False otherwise.
+     */
+    fun isFull(): Boolean {
+        return letterBoxes.last().letter != ' '
+    }
+
+    /**
      * @return A string representation of the [Word] object, including the string representation of its [letterBoxes]
      * property.
      */
