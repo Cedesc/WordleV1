@@ -50,7 +50,7 @@ class WordBoardTest {
      */
     private fun word_quickFill(word: Word, vararg letters: Char): Unit {
         for (letterIndex in letters.indices) {
-            word.letters[letterIndex].letter = letters[letterIndex]
+            word.letterBoxes[letterIndex].letter = letters[letterIndex]
         }
     }
 

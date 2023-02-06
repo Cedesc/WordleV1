@@ -13,25 +13,25 @@ class Word(resultWordLength: Int) {
      * Represents the individual letters in the word.
      * Each letter is represented by exactly one instance of [LetterBox].
      */
-    val letters: Array<LetterBox> = Array(resultWordLength) { _ -> LetterBox() }
+    val letterBoxes: Array<LetterBox> = Array(resultWordLength) { _ -> LetterBox() }
 
 
     /**
      * Determines if the passed `resultWord` is equal to [WordBoard.resultWord].
      *
      * Calls [LetterBox.checkIfLetterIsInWord] and [LetterBox.compareLetter], which change the states of the individual letters in
-     * [letters] are change.
+     * [letterBoxes] are change.
      *
      * @return True if the passed word is equal to [WordBoard.resultWord], False otherwise.
-     * @throws IllegalArgumentException If the passed resultWord and [letters] have different length.
+     * @throws IllegalArgumentException If the passed resultWord and [letterBoxes] have different length.
      */
     fun checkWord(resultWord: String): Boolean {
         // throw an error if the words have different length
-        if (resultWord.length != letters.size) throw IllegalArgumentException("The length of the passed resultWord " +
+        if (resultWord.length != letterBoxes.size) throw IllegalArgumentException("The length of the passed resultWord " +
                 "and the number of saved letters must be the same.")
 
         // zip resultWordLetters and LetterBoxLetters
-        val zippedLetters = resultWord.toCharArray().zip(letters)
+        val zippedLetters = resultWord.toCharArray().zip(letterBoxes)
 
         // for each letter, check if the letter is in the complete word and if the letters are the same
         for ((resultLetter, actualLetter) in zippedLetters) {
@@ -40,15 +40,15 @@ class Word(resultWordLength: Int) {
         }
 
         // return true if the complete word is correct
-        return letters.all { it.state == 3 }
+        return letterBoxes.all { it.state == 3 }
     }
 
     /**
-     * @return A string representation of the [Word] object, including the string representation of its [letters]
+     * @return A string representation of the [Word] object, including the string representation of its [letterBoxes]
      * property.
      */
     override fun toString(): String {
-        return "Word(letters=${letters.contentToString()})"
+        return "Word(letters=${letterBoxes.contentToString()})"
     }
 
 }

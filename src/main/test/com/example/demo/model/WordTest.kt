@@ -10,32 +10,32 @@ class WordTest {
     @Test
     fun testCheckWord_sameWord() {
         val word = Word(4)
-        word.letters[0].letter = 'T'
-        word.letters[1].letter = 'E'
-        word.letters[2].letter = 'S'
-        word.letters[3].letter = 'T'
+        word.letterBoxes[0].letter = 'T'
+        word.letterBoxes[1].letter = 'E'
+        word.letterBoxes[2].letter = 'S'
+        word.letterBoxes[3].letter = 'T'
         assertTrue(word.checkWord("TEST"))
         // all LetterBoxes should be green
-        assertTrue(word.letters[0].state == 3)
-        assertTrue(word.letters[1].state == 3)
-        assertTrue(word.letters[2].state == 3)
-        assertTrue(word.letters[3].state == 3)
+        assertTrue(word.letterBoxes[0].state == 3)
+        assertTrue(word.letterBoxes[1].state == 3)
+        assertTrue(word.letterBoxes[2].state == 3)
+        assertTrue(word.letterBoxes[3].state == 3)
     }
 
     @Test
     fun testCheckWord_differentWord() {
         val word = Word(5)
-        word.letters[0].letter = 'S'
-        word.letters[1].letter = 'A'
-        word.letters[2].letter = 'I'
-        word.letters[3].letter = 'L'
-        word.letters[4].letter = 'S'
+        word.letterBoxes[0].letter = 'S'
+        word.letterBoxes[1].letter = 'A'
+        word.letterBoxes[2].letter = 'I'
+        word.letterBoxes[3].letter = 'L'
+        word.letterBoxes[4].letter = 'S'
         assertFalse(word.checkWord("TASTY"))
-        assertTrue(word.letters[0].state == 2)
-        assertTrue(word.letters[1].state == 3)
-        assertTrue(word.letters[2].state == 1)
-        assertTrue(word.letters[3].state == 1)
-        assertTrue(word.letters[4].state == 2)
+        assertTrue(word.letterBoxes[0].state == 2)
+        assertTrue(word.letterBoxes[1].state == 3)
+        assertTrue(word.letterBoxes[2].state == 1)
+        assertTrue(word.letterBoxes[3].state == 1)
+        assertTrue(word.letterBoxes[4].state == 2)
     }
 
     @Test
@@ -50,12 +50,12 @@ class WordTest {
         val word = Word(3)
         assertEquals("Word(letters=[LetterBox(letter= , state=0), " +
                 "LetterBox(letter= , state=0), LetterBox(letter= , state=0)])", word.toString())
-        word.letters[0].letter = 'H'
-        word.letters[0].state = 3
-        word.letters[1].letter = 'E'
-        word.letters[1].state = 2
-        word.letters[2].letter = 'Y'
-        word.letters[2].state = 1
+        word.letterBoxes[0].letter = 'H'
+        word.letterBoxes[0].state = 3
+        word.letterBoxes[1].letter = 'E'
+        word.letterBoxes[1].state = 2
+        word.letterBoxes[2].letter = 'Y'
+        word.letterBoxes[2].state = 1
         assertEquals("Word(letters=[LetterBox(letter=H, state=3), " +
                 "LetterBox(letter=E, state=2), LetterBox(letter=Y, state=1)])", word.toString())
     }

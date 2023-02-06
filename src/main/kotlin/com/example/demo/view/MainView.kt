@@ -47,7 +47,7 @@ class MainView : View("WordleX3Z") {
             for (row in 0 until numberOfRows) {
                 row {
                     for (col in 0 until numberOfColumns) {
-                        val letter: LetterBox = mainController.gameInstance.wordBoard.rows[row].letters[col]
+                        val letter: LetterBox = mainController.gameInstance.wordBoard.rows[row].letterBoxes[col]
                         add<LetterBoxFragment>(LetterBoxFragment::letterBox to letter)
                     }
                 }

@@ -59,9 +59,14 @@ class MainController : Controller() {
      * @param letter the letter that was pressed
      */
     fun letterKeyPressed(letter: Char) {
-        println(letter)
-        gameInstance.wordBoard.rows[currentRow].letters[currentColumn].letter = letter
-        // TODO: Check if it is allowed to set the next letter AND go automatically to the next field.
+        // check if the current row isn't full so that another letter can be set
+        // TODO: Check if it is allowed to set the next letter
+
+        // set the letter on the current position
+        gameInstance.wordBoard.rows[currentRow].letterBoxes[currentColumn].letter = letter
+
+        // increment the column counter
+        // TODO: go automatically to the next field.
     }
 
 }
