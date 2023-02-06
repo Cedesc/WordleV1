@@ -48,8 +48,16 @@ class MainController : Controller() {
      * Called when the back key is pressed.
      */
     fun backPressed() {
-        println("Back")
-        // TODO: Not yet implemented.
+        // Check if the current row isn't empty so that the last set letter can be deleted. If the word is empty, no
+        // letter can be deleted -> nothing happens.
+        if (gameInstance.wordBoard.rows[currentRow].isEmpty())
+            return
+
+        // decrement the column counter
+        currentColumn -= 1
+
+        // delete the last letter
+        gameInstance.wordBoard.rows[currentRow].letterBoxes[currentColumn].letter = ' '
     }
 
     /**
@@ -59,14 +67,16 @@ class MainController : Controller() {
      * @param letter the letter that was pressed
      */
     fun letterKeyPressed(letter: Char) {
-        // check if the current row isn't full so that another letter can be set
-        // TODO: Check if it is allowed to set the next letter
+        // Check if the current row isn't full so that another letter can be set. If the word is full, no additional
+        // letter can be added -> nothing happens.
+        if (gameInstance.wordBoard.rows[currentRow].isFull())
+            return
 
         // set the letter on the current position
         gameInstance.wordBoard.rows[currentRow].letterBoxes[currentColumn].letter = letter
 
         // increment the column counter
-        // TODO: go automatically to the next field.
+        currentColumn += 1
     }
 
 }
