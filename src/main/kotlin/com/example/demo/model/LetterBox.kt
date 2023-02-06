@@ -1,5 +1,8 @@
 package com.example.demo.model
 
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.property.SimpleStringProperty
+
 /**
  * Representation of a letter in the [WordBoard].
  *
@@ -8,18 +11,21 @@ package com.example.demo.model
  */
 class LetterBox {
 
+    val letterProperty = SimpleStringProperty(" ")
     /**
      * Shown letter. Initialized with a space character.
      */
-    var letter: Char = ' '
-        set(value) {
-            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ ".contains(value))
-                field = value
+    var letter: Char
+        get() = letterProperty.value[0]
+        set(newValue) {
+            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ ".contains(newValue))
+                letterProperty.value = newValue.toString()
             // if the input is a lower case letter, change it to an upper case letter
-            if ("abcdefghijklmnopqrstuvwxyz".contains(value))
-                field = value.toUpperCase()
+            if ("abcdefghijklmnopqrstuvwxyz".contains(newValue))
+                letterProperty.value = newValue.toUpperCase().toString()
         }
 
+    val stateProperty = SimpleIntegerProperty(0)
     /**
      * Color of the box. Initialized with 0 (black).
      *
@@ -29,10 +35,11 @@ class LetterBox {
      * - 2: yellow (correct letter, wrong place)
      * - 3: green (correct letter, correct place)
      */
-    var state: Int = 0
-        set(value) {
-            if (value in 0..3)
-                field = value
+    var state: Int
+        get() = stateProperty.value
+        set(newValue) {
+            if (newValue in 0..3)
+                stateProperty.value = newValue
         }
 
 
