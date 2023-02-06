@@ -3,7 +3,6 @@ package com.example.demo.view
 import com.example.demo.controller.MainController
 import com.example.demo.style.Styles
 import com.example.demo.view.nodes.LetterBoxShape
-import com.example.demo.view.viewmodel.WordBoardModel
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
@@ -18,10 +17,6 @@ class MainView : View("WordleX3Z") {
     // set number of rows and number of columns
     private val numberOfRows: Int = mainController.numberOfRows
     private val numberOfColumns: Int = mainController.resultWord.length
-
-
-    private val wordBoardModel: WordBoardModel by inject()
-
 
 
     override val root = vbox {
@@ -51,7 +46,6 @@ class MainView : View("WordleX3Z") {
         }
 
 
-        // TODO: arrange rows in a way that the keyboard has a symmetric shape
         // create keyboard
         vbox {
             // add style class
