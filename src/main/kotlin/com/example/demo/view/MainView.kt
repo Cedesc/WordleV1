@@ -19,9 +19,9 @@ import tornadofx.*
  *  (ENTER, BACK). The keys are created with the [button] function and have actions associated with them that
  *  call methods in the mainController.
  *
- * @property mainController is a controller for the MainView. It is injected through TornadoFX's dependency injection.
- * @property numberOfRows is the number of rows in the game board. It is obtained from the mainController.
- * @property numberOfColumns is the number of columns in the game board. It is obtained from the length of the result
+ * @property mainController Controller for the MainView. It is injected through TornadoFX's dependency injection.
+ * @property numberOfRows Number of rows in the game board. It is obtained from the mainController.
+ * @property numberOfColumns Number of columns in the game board. It is obtained from the length of the result
  * word in the mainController.
  */
 class MainView : View("WordleX3Z") {
