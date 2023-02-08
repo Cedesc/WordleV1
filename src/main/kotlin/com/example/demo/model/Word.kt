@@ -15,12 +15,27 @@ class Word(resultWordLength: Int) {
      */
     val letterBoxes: Array<LetterBox> = Array(resultWordLength) { _ -> LetterBox() }
 
+    /**
+     * Number of the actual column where the next letter is placed. The minimum is 0, the maximum is the number of
+     * letters ( = letterBoxes.size + 1). If the currentColumn is at its maximum means that the word is full.
+     */
+    var currentColumn: Int = 0 // TODO: write tests
+        set(value) {
+            if (value < 0)
+                throw ArithmeticException("The column index can't be less than zero.")
+            if (value > letterBoxes.size)
+                throw ArithmeticException("The column index can't be higher than letterBoxes.size + 1.")
+            field = value
+        }
+
 
     /**
      * Determines if the passed `resultWord` is equal to [WordBoard.resultWord].
      *
      * Calls [LetterBox.checkIfLetterIsInWord] and [LetterBox.compareLetter], which change the states of the individual letters in
      * [letterBoxes] are change.
+     *
+     * Sets the [currentColumn] to zero.
      *
      * @return True if the passed word is equal to [WordBoard.resultWord], False otherwise.
      * @throws IllegalArgumentException If the passed resultWord and [letterBoxes] have different length.
@@ -39,8 +54,35 @@ class Word(resultWordLength: Int) {
             actualLetter.compareLetter(resultLetter)
         }
 
+        // set currentColumn back to zero
+        currentColumn = 0 // TODO: write tests for this line
+
         // return true if the complete word is correct
         return letterBoxes.all { it.state == 3 }
+    }
+
+    /**
+     * Decrements [currentColumn] and deletes the last letter.
+     */
+    fun deleteLastLetter() { // TODO: write tests
+        // decrement the column counter
+        currentColumn -= 1
+
+        // delete the last letter
+        letterBoxes[currentColumn].letter = ' '
+    }
+
+    /**
+     * Sets the given letter at the current position ([currentColumn]) and increments [currentColumn].
+     *
+     * @param letter The input letter for the [LetterBox].
+     */
+    fun setNextLetter(letter: Char) { // TODO: write tests
+        // set the letter at the current postion
+        letterBoxes[currentColumn].letter = letter
+
+        // increment the column counter
+        currentColumn += 1
     }
 
     /**

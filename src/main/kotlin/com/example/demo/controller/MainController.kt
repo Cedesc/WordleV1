@@ -25,15 +25,19 @@ class MainController : Controller() {
 
 
     /**
-     * Current column in the word board that the player is on.
-     */
-    private var currentColumn: Int = 0
-
-    /**
      * Current row in the word board that the player is on.
      */
     private val currentRow: Int
         get() = gameInstance.wordBoard.currentRow
+
+    /**
+     * Current column in the word board that the player is on.
+     */
+    private var currentColumn: Int
+        get() = gameInstance.wordBoard.rows[currentRow].currentColumn
+        set(value) {
+            gameInstance.wordBoard.rows[currentRow].currentColumn = value
+        }
 
 
     /**
@@ -45,11 +49,8 @@ class MainController : Controller() {
         if (! gameInstance.wordBoard.rows[currentRow].isFull())
             return
 
-        // Call checkWord
+        // Call checkWord: updates the status of each letter and increments the currentRow.
         gameInstance.wordBoard.checkWord()
-
-        // set the column counter back to the start
-        currentColumn = 0
     }
 
     /**
@@ -61,11 +62,8 @@ class MainController : Controller() {
         if (gameInstance.wordBoard.rows[currentRow].isEmpty())
             return
 
-        // decrement the column counter
-        currentColumn -= 1
-
-        // delete the last letter
-        gameInstance.wordBoard.rows[currentRow].letterBoxes[currentColumn].letter = ' '
+        // Call deleteLastLetter: decrements the currentColumn and deletes the last letter.
+        gameInstance.wordBoard.rows[currentRow].deleteLastLetter()
     }
 
     /**
@@ -80,11 +78,8 @@ class MainController : Controller() {
         if (gameInstance.wordBoard.rows[currentRow].isFull())
             return
 
-        // set the letter on the current position
-        gameInstance.wordBoard.rows[currentRow].letterBoxes[currentColumn].letter = letter
-
-        // increment the column counter
-        currentColumn += 1
+        // Call setNextLetter: sets the next letter and increments the currentColumn.
+        gameInstance.wordBoard.rows[currentRow].setNextLetter(letter)
     }
 
 }
