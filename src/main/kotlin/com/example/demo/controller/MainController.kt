@@ -40,8 +40,16 @@ class MainController : Controller() {
      * Called when the enter key is pressed.
      */
     fun enterPressed() {
-        println("Enter")
-        // TODO: Not yet implemented.
+        // Check if the current row is full so that the complete word can be checked. If the word isn't full, no
+        // the word can't be checked -> nothing happens.
+        if (! gameInstance.wordBoard.rows[currentRow].isFull())
+            return
+
+        // Call checkWord
+        gameInstance.wordBoard.checkWord()
+
+        // set the column counter back to the start
+        currentColumn = 0
     }
 
     /**
