@@ -4,7 +4,6 @@ package com.example.demo.model
  * Representation of the keyboard.
  */
 class KeyBoard {
-    // TODO: write tests for constructor
 
     /**
      * All letter keys of the keyboard.

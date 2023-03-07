@@ -4,6 +4,23 @@ Project: WordleX3Z
 
 
 
+Next Thing To Do:
+
+    - identify bugs / missing features and note them
+        - bad colors
+        - the way multiple occurrences of the same letter are being handled is incorrect (wrong colors)
+        - pressing keys after filling all fields throws errors
+        - no keyboard colors
+            - requirements:
+                - implementing keyboard classes
+        - each letter combination can be entered (except only correct words)
+            - requirements:
+                - "database" / json / txt
+
+    - work through To-Do items in the code
+
+
+
 Major Parts:
     - test suite
     - frontend
